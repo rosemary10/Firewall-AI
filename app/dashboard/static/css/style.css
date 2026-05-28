@@ -612,3 +612,44 @@ body {
 
     max-height: 450px;
 }
+
+/* ================= SENTINELAI TITLE ANIMATION ================= */
+
+.animated-title {
+
+    text-align: center;
+
+    font-size: 42px;
+
+    font-weight: bold;
+
+    color: white;
+
+    margin-bottom: 25px;
+}
+
+.shield {
+
+    display: inline-block;
+
+    animation: shieldPulse 1.5s infinite;
+
+    margin-left: 10px;
+}
+
+/* SHIELD PULSE EFFECT */
+
+@keyframes shieldPulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.35);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
