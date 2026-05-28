@@ -446,6 +446,110 @@ def awareness():
 
     return render_template("awareness.html")
 
+# ================= QUIZ =================
+@app.route("/quiz", methods=["GET", "POST"])
+def quiz():
+
+    if not is_user():
+        return "ACCESS DENIED", 403
+
+    questions = [
+
+        {
+            "q": "What is phishing?",
+            "options": [
+                "A firewall",
+                "A fake attempt to steal information",
+                "An antivirus",
+                "A VPN"
+            ],
+            "answer": 1
+        },
+
+        {
+            "q": "Which is a strong password?",
+            "options": [
+                "123456",
+                "password",
+                "R@j#2026Secure",
+                "abcdef"
+            ],
+            "answer": 2
+        },
+
+        {
+            "q": "What does 2FA mean?",
+            "options": [
+                "Two Factor Authentication",
+                "Two Firewall Access",
+                "Fast Login",
+                "Secure Browser"
+            ],
+            "answer": 0
+        }
+    ]
+
+    score = None
+
+    if request.method == "POST":
+
+        score = 0
+
+        for i, q in enumerate(questions):
+
+            selected = request.form.get(f"question{i}")
+
+            if selected is not None and int(selected) == q["answer"]:
+                score += 1
+
+    return render_template(
+        "quiz.html",
+        questions=questions,
+        score=score
+    )
+
+# ================= PASSWORD CHECKER =================
+@app.route("/password_checker", methods=["GET", "POST"])
+def password_checker():
+
+    if not is_user():
+        return "ACCESS DENIED", 403
+
+    strength = None
+
+    if request.method == "POST":
+
+        password = request.form.get("password")
+
+        score = 0
+
+        if len(password) >= 8:
+            score += 1
+
+        if any(char.isdigit() for char in password):
+            score += 1
+
+        if any(char.isupper() for char in password):
+            score += 1
+
+        if any(char in "!@#$%^&*" for char in password):
+            score += 1
+
+        if score <= 1:
+            strength = "Weak Password ❌"
+
+        elif score <= 3:
+            strength = "Medium Password ⚠️"
+
+        else:
+            strength = "Strong Password ✅"
+
+    return render_template(
+        "password_checker.html",
+        strength=strength
+    )
+
+    
 # ================= TEST =================
 @app.route("/test")
 def test():

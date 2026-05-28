@@ -33,6 +33,26 @@ CREATE TABLE IF NOT EXISTS logs (
     message TEXT
 )
 """)
+from werkzeug.security import generate_password_hash
+
+# ================= DEFAULT ADMIN =================
+admin_password = generate_password_hash("Admin@123")
+
+cursor.execute("""
+INSERT OR IGNORE INTO users (
+    email,
+    mobile,
+    password,
+    role
+)
+VALUES (?, ?, ?, ?)
+""", (
+    "admin@sentinelai.com",
+    "9999999999",
+    admin_password,
+    "admin"
+))
+
 
 conn.commit()
 conn.close()
