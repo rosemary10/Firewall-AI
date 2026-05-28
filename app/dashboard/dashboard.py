@@ -169,13 +169,26 @@ def user_dashboard():
     daily_tip = TIPS[today_index % len(TIPS)]
 
     return render_template(
-        "user_dashboard.html",
-        role="user",
-        awareness_training_enabled=user["awareness_training_enabled"],
-        safe_link_checker_enabled=user["safe_link_checker_enabled"],
-        tips_enabled=user["tips_enabled"],
-        daily_tip=daily_tip
-    )
+    "user_dashboard.html",
+    role="user",
+
+    awareness_training_enabled=
+        user["awareness_training_enabled"]
+        if "awareness_training_enabled" in user.keys()
+        else 1,
+
+    safe_link_checker_enabled=
+        user["safe_link_checker_enabled"]
+        if "safe_link_checker_enabled" in user.keys()
+        else 1,
+
+    tips_enabled=
+        user["tips_enabled"]
+        if "tips_enabled" in user.keys()
+        else 1,
+
+    daily_tip=daily_tip
+)
 
 # ================= LOGS =================
 def load_logs():
@@ -762,4 +775,4 @@ import os
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=port)  
