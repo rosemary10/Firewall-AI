@@ -1620,3 +1620,10 @@
 2026-05-28 15:00:06 | ALERT | Attack Type: None | IP: 72.154.7.105 | Port: 3901 | Threat: MEDIUM | United States, Quincy, Microsoft Corporation
 2026-05-28 15:00:08 | ALERT | Attack Type: None | IP: 20.189.173.18 | Port: 3903 | Threat: MEDIUM | United States, San Francisco, Microsoft Corporation
 2026-05-28 15:00:10 | ALERT | Attack Type: None | IP: 23.220.98.45 | Port: 3905 | Threat: MEDIUM | India, Chennai, Akamai Technologies, Inc.
+2026-05-28 15:01:29 | ALERT | Attack Type: PORT SCANNING | IP: 103.199.160.80 | Port: 64358 | Threat: HIGH | India, Thrissur, Kerala Communicators Cable Limited
+2026-05-28 15:01:36 | ALERT | Attack Type: None | IP: 172.66.0.227 | Port: 7179 | Threat: MEDIUM | Canada, Toronto, Cloudflare, Inc.
+2026-05-28 15:01:38 | ALERT | Attack Type: None | IP: 198.202.176.111 | Port: 12756 | Threat: MEDIUM | United States, San Francisco, Amazon.com, Inc.
+2026-05-28 15:01:41 | ALERT | Attack Type: None | IP: 13.228.126.182 | Port: 1734 | Threat: MEDIUM | Singapore, Singapore, Amazon Technologies Inc.
+2026-05-28 15:01:43 | ALERT | Attack Type: None | IP: 192.0.80.240 | Port: 55986 | Threat: MEDIUM | United States, Dallas, Automattic, Inc
+2026-05-28 15:04:57 | ALERT | Attack Type: None | IP: 4.145.11.36 | Port: 14566 | Threat: MEDIUM | Singapore, Singapore, Microsoft Corporation
+2026-05-28 15:06:57 | ALERT | Attack Type: None | IP: 18.97.36.23 | Port: 4160 | Threat: MEDIUM | United States, Ashburn, Amazon.com, Inc.
