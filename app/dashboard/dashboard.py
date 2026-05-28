@@ -256,6 +256,7 @@ def analyst_dashboard():
     )
 
 # ================= USER DASHBOARD =================
+# ================= USER DASHBOARD =================
 @app.route("/user")
 def user_dashboard():
 
@@ -269,13 +270,15 @@ SELECT *
 FROM users
 WHERE email=?
 """, (
-    session.get("user_email"),
-)).fetchone()
+        session.get("user_email"),
+    )).fetchone()
 
     conn.close()
 
+    # FIX
     if user is None:
-        return "User not found", 404
+        session.clear()
+        return redirect(url_for("login"))
 
     TIPS = [
 
