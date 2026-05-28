@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- MENU BUTTON -->
+
+<div class="menu-btn" onclick="toggleSidebar()">
+    ☰
+</div>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar" id="sidebar">
+
+    <h2>FIREWALL AI</h2>
+
+    <a href="/admin">🏠 Dashboard</a>
+    <a href="/users">👤 Manage Users</a>
+    <a href="/blocked">🛑 Blocked IPs</a>
+    <a href="/critical">🚨 Critical Threats</a>
+    <a href="/high">⚠ High Threats</a>
+    <a href="/medium">⚡ Medium Threats</a>
+    <a href="/download_report">📊 Download Report</a>
+    <a href="/logout">🚪 Logout</a>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+    <h1>ADMIN DASHBOARD</h1>
+
+    <div class="stats-container">
+
+        <div class="stat-box">
+            <div class="stat-title">Total Alerts</div>
+            <div class="stat-value">{{ total_alerts }}</div>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-title">Blocked IPs</div>
+            <div class="stat-value">{{ blocked_ips }}</div>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-title">Critical</div>
+            <div class="stat-value">{{ critical_count }}</div>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-title">High</div>
+            <div class="stat-value">{{ high_count }}</div>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-title">Medium</div>
+            <div class="stat-value">{{ medium_count }}</div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+function toggleSidebar() {
+
+    const sidebar = document.getElementById("sidebar");
+
+    if (sidebar.style.left === "0px") {
+        sidebar.style.left = "-250px";
+    } else {
+        sidebar.style.left = "0px";
+    }
+}
+
+</script>
+
+</body>
+</html>

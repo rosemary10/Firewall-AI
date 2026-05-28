@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Social Engineering Attacks</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="menu-btn" onclick="toggleSidebar()">
+    ☰
+</div>
+
+<div class="sidebar" id="sidebar">
+
+    <h2>FIREWALL AI</h2>
+
+    <a href="/user">🏠 Dashboard</a>
+    <a href="/awareness">🧠 Awareness Training</a>
+    <a href="/logout">🚪 Logout</a>
+
+</div>
+
+<div class="main">
+
+    <button class="back-btn" onclick="history.back()">
+        ← Back
+    </button>
+
+    <h1>SOCIAL ENGINEERING ATTACKS</h1>
+
+    <p>
+        Social engineering attacks manipulate people into revealing
+        confidential information or performing unsafe actions.
+    </p>
+
+    <!-- PHISHING -->
+
+    <h2>1. Phishing</h2>
+
+    <p>
+        <b>Definition:</b> Fake emails or websites used to steal passwords,
+        banking details and personal information.
+    </p>
+
+    <h3>Causes</h3>
+
+    <ul>
+        <li>Fake login pages</li>
+        <li>Suspicious email links</li>
+        <li>Urgent scam messages</li>
+    </ul>
+
+    <h3>How to Identify</h3>
+
+    <ul>
+        <li>Spelling mistakes</li>
+        <li>Unknown senders</li>
+        <li>Suspicious URLs</li>
+    </ul>
+
+    <h3>Prevention</h3>
+
+    <ul>
+        <li>Do not click unknown links</li>
+        <li>Enable multi-factor authentication</li>
+        <li>Verify sender identity</li>
+    </ul>
+
+    <!-- SPEAR PHISHING -->
+
+    <h2>2. Spear Phishing</h2>
+
+    <p>
+        <b>Definition:</b> Targeted phishing attack aimed at specific individuals.
+    </p>
+
+    <h3>Causes</h3>
+
+    <ul>
+        <li>Information gathered from social media</li>
+        <li>Fake trusted identities</li>
+    </ul>
+
+    <h3>How to Identify</h3>
+
+    <ul>
+        <li>Personalized suspicious emails</li>
+        <li>Unexpected requests</li>
+    </ul>
+
+    <h3>Prevention</h3>
+
+    <ul>
+        <li>Verify requests before responding</li>
+        <li>Avoid sharing personal details online</li>
+    </ul>
+
+    <!-- VISHING -->
+
+    <h2>3. Vishing</h2>
+
+    <p>
+        <b>Definition:</b> Voice phishing attacks through phone calls.
+    </p>
+
+    <h3>Causes</h3>
+
+    <ul>
+        <li>Fake customer support calls</li>
+        <li>Scam banking calls</li>
+    </ul>
+
+    <h3>How to Identify</h3>
+
+    <ul>
+        <li>Caller asks for OTP or passwords</li>
+        <li>Threatening language</li>
+    </ul>
+
+    <h3>Prevention</h3>
+
+    <ul>
+        <li>Never share OTPs</li>
+        <li>Disconnect suspicious calls</li>
+    </ul>
+
+    <!-- SMISHING -->
+
+    <h2>4. Smishing</h2>
+
+    <p>
+        <b>Definition:</b> Phishing through SMS text messages.
+    </p>
+
+    <h3>Causes</h3>
+
+    <ul>
+        <li>Fake delivery links</li>
+        <li>Prize scam messages</li>
+    </ul>
+
+    <h3>How to Identify</h3>
+
+    <ul>
+        <li>Unknown links in SMS</li>
+        <li>Urgent action requests</li>
+    </ul>
+
+    <h3>Prevention</h3>
+
+    <ul>
+        <li>Avoid clicking SMS links</li>
+        <li>Use spam filters</li>
+    </ul>
+
+    <!-- SOCIAL ENGINEERING -->
+
+    <h2>5. Social Engineering</h2>
+
+    <p>
+        <b>Definition:</b> Psychological manipulation to trick people into
+        revealing confidential information.
+    </p>
+
+    <h3>Causes</h3>
+
+    <ul>
+        <li>Human trust exploitation</li>
+        <li>Fear and urgency tactics</li>
+    </ul>
+
+    <h3>How to Identify</h3>
+
+    <ul>
+        <li>Requests for confidential information</li>
+        <li>Pressure to act quickly</li>
+    </ul>
+
+    <h3>Prevention</h3>
+
+    <ul>
+        <li>Employee awareness training</li>
+        <li>Verify identities carefully</li>
+    </ul>
+
+</div>
+
+<script>
+
+function toggleSidebar() {
+
+    const sidebar = document.getElementById("sidebar");
+
+    if (sidebar.style.left === "0px") {
+        sidebar.style.left = "-250px";
+    } else {
+        sidebar.style.left = "0px";
+    }
+}
+
+</script>
+
+</body>
+</html>

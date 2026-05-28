@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cyber Awareness Training</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        .back-btn{
+            display:inline-block;
+            margin-bottom:20px;
+            text-decoration:none;
+            background:#1a1774;
+            color:white;
+            padding:10px 18px;
+            border-radius:8px;
+            font-weight:bold;
+            border:none;
+            cursor:pointer;
+        }
+
+        .back-btn:hover{
+            background:#2b2aa0;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- MENU BUTTON -->
+<div class="menu-btn" onclick="toggleSidebar()">
+    ☰
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+
+    <h2>USER PANEL</h2>
+
+    <a href="/user">🏠 Dashboard</a>
+    <a href="/awareness">🧠 Awareness</a>
+    <a href="/logout">🚪 Logout</a>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <!-- BACK BUTTON -->
+    <a href="/user" class="back-btn">
+        ⬅ Back to Dashboard
+    </a>
+
+    <h1>Cybersecurity Awareness Training</h1>
+
+    <p>
+        Learn about major cyberattacks,
+        how they work,
+        how to identify them,
+        and prevention methods.
+    </p>
+
+    <div class="category-grid">
+
+        <!-- MALWARE -->
+        <div class="category-card">
+
+            <img src="{{ url_for('static', filename='images/categories/malware.jpg') }}">
+
+            <h2>Malware Attacks</h2>
+
+            <p>
+                Learn about ransomware, spyware,
+                trojans, worms and cryptojacking.
+            </p>
+
+            <a href="/malware">Explore</a>
+
+        </div>
+
+        <!-- SOCIAL -->
+        <div class="category-card">
+
+            <img src="{{ url_for('static', filename='images/categories/social.jpg') }}">
+
+            <h2>Social Engineering</h2>
+
+            <p>
+                Learn about phishing,
+                vishing, smishing and manipulation attacks.
+            </p>
+
+            <a href="/social">Explore</a>
+
+        </div>
+
+        <!-- NETWORK -->
+        <div class="category-card">
+
+            <img src="{{ url_for('static', filename='images/categories/network.jpg') }}">
+
+            <h2>Network Attacks</h2>
+
+            <p>
+                Learn about DDoS, MITM,
+                ARP spoofing and packet sniffing.
+            </p>
+
+            <a href="/network">Explore</a>
+
+        </div>
+
+        <!-- WEB -->
+        <div class="category-card">
+
+            <img src="{{ url_for('static', filename='images/categories/web.jpg') }}">
+
+            <h2>Web Application Attacks</h2>
+
+            <p>
+                Learn about SQL injection,
+                XSS, CSRF and command injection.
+            </p>
+
+            <a href="/webattacks">Explore</a>
+
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="category-card">
+
+            <img src="{{ url_for('static', filename='images/categories/password.jpg') }}">
+
+            <h2>Password Attacks</h2>
+
+            <p>
+                Learn about brute force,
+                credential stuffing and rainbow tables.
+            </p>
+
+            <a href="/password">Explore</a>
+
+        </div>
+
+        <!-- ADVANCED -->
+        <div class="category-card">
+
+            <img src="{{ url_for('static', filename='images/categories/advanced.jpg') }}">
+
+            <h2>Advanced Threats</h2>
+
+            <p>
+                Learn about APTs,
+                zero-day attacks,
+                insider threats and AI attacks.
+            </p>
+
+            <a href="/advanced">Explore</a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- JS -->
+<script>
+
+function toggleSidebar() {
+
+    const sidebar = document.getElementById("sidebar");
+
+    if (sidebar.style.left === "0px") {
+        sidebar.style.left = "-250px";
+    } else {
+        sidebar.style.left = "0px";
+    }
+}
+
+</script>
+
+</body>
+</html>

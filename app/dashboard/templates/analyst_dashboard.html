@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Analyst Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<!-- MENU BUTTON -->
+<div class="menu-btn" onclick="toggleSidebar()">
+    ☰
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+
+    <h2>ANALYST PANEL</h2>
+
+    <a href="/analyst">🏠 Dashboard</a>
+
+    <a href="/logs">
+        📄 View Logs
+    </a>
+
+    <a href="/critical">
+        🚨 Critical Threats
+    </a>
+
+    <a href="/high">
+        ⚠ High Threats
+    </a>
+
+    <a href="/medium">
+        🟡 Medium Threats
+    </a>
+
+    <a href="/logout">
+        🚪 Logout
+    </a>
+
+</div>
+
+<!-- SIDEBAR OVERLAY -->
+<div id="overlay" onclick="closeSidebar()"></div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <h1 style="text-align:center;">
+        ANALYST DASHBOARD
+    </h1>
+
+    <!-- HERO -->
+    <div class="hero-box">
+
+        <h2>Security Monitoring Center</h2>
+
+        <p>
+            Monitor live threats, analyze attack patterns,
+            investigate suspicious activities,
+            and review firewall security logs.
+        </p>
+
+    </div>
+
+    <!-- STATS -->
+    <!-- ================= COMBINED ANALYST CARDS ================= -->
+
+<div class="combined-threat-container">
+
+    <!-- TOTAL ALERTS -->
+    <div class="combined-card">
+
+        <div class="icon-circle blue">
+            📄
+        </div>
+
+        <h2>Total Alerts & Logs</h2>
+
+        <div class="combined-count">
+            {{ total_alerts }}
+        </div>
+
+        <a href="/logs" class="combined-btn blue-btn">
+            View Logs
+        </a>
+
+    </div>
+
+    <!-- CRITICAL -->
+    <div class="combined-card">
+
+        <div class="icon-circle red">
+            🚨
+        </div>
+
+        <h2>Critical Threats</h2>
+
+        <div class="combined-count critical-text">
+            {{ critical_count }}
+        </div>
+
+        <a href="/critical" class="combined-btn red-btn">
+            View Threats
+        </a>
+
+    </div>
+
+    <!-- HIGH -->
+    <div class="combined-card">
+
+        <div class="icon-circle orange">
+            ⚠️
+        </div>
+
+        <h2>High Threats</h2>
+
+        <div class="combined-count high-text">
+            {{ high_count }}
+        </div>
+
+        <a href="/high" class="combined-btn orange-btn">
+            View Threats
+        </a>
+
+    </div>
+
+    <!-- MEDIUM -->
+    <div class="combined-card">
+
+        <div class="icon-circle yellow">
+            🟡
+        </div>
+
+        <h2>Medium Threats</h2>
+
+        <div class="combined-count medium-text">
+            {{ medium_count }}
+        </div>
+
+        <a href="/medium" class="combined-btn yellow-btn">
+            View Threats
+        </a>
+
+    </div>
+
+</div>
+
+<!-- ================= ANALYST CYBER TIP ================= -->
+
+<div class="tips-strip">
+
+    <h2>
+        🧠 Analyst Daily Security Tip
+    </h2>
+
+    <div class="tips-scroll">
+
+        <div class="tip">
+
+            {{ analyst_tip }}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= THREAT CHARTS ================= -->
+
+<div class="chart-container">
+
+    <h2>
+        📊 Threat Severity Analytics
+    </h2>
+
+    <canvas id="threatChart"></canvas>
+
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+
+function toggleSidebar() {
+
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
+
+    if (sidebar.style.left === "0px") {
+
+        sidebar.style.left = "-250px";
+        overlay.style.display = "none";
+
+    } else {
+
+        sidebar.style.left = "0px";
+        overlay.style.display = "block";
+    }
+}
+
+function closeSidebar(){
+
+    document.getElementById("sidebar").style.left = "-250px";
+
+    document.getElementById("overlay").style.display = "none";
+}
+
+/* ================= CHAT TOGGLE ================= */
+
+function toggleChat() {
+
+    let popup = document.getElementById("chatPopup");
+
+    if (popup.style.display === "flex") {
+
+        popup.style.display = "none";
+
+    } else {
+
+        popup.style.display = "flex";
+
+        if (!popup.dataset.loaded) {
+
+            popup.dataset.loaded = "true";
+
+            document.getElementById("messages").innerHTML += `
+                <div class='bot'>
+                    Analyst AI: Hello Analyst 👨‍💻<br>
+                    I can help analyze threats,
+                    logs, phishing, malware and attacks.
+                </div>
+            `;
+        }
+    }
+}
+
+/* ================= SEND MESSAGE ================= */
+
+async function sendMsg() {
+
+    let msg = document.getElementById("msg").value.trim();
+
+    let box = document.getElementById("messages");
+
+    if (!msg) return;
+
+    box.innerHTML += `
+        <div class='user'>
+            You: ${msg}
+        </div>
+    `;
+
+    let res = await fetch("/chat", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            message: msg
+        })
+    });
+
+    let data = await res.json();
+
+    box.innerHTML += `
+        <div class='bot'>
+            Analyst AI: ${data.reply}
+        </div>
+    `;
+
+    document.getElementById("msg").value = "";
+
+    box.scrollTop = box.scrollHeight;
+}
+
+/* ================= ENTER KEY ================= */
+
+document.getElementById("msg")
+.addEventListener("keypress", function(e){
+
+    if (e.key === "Enter") {
+        sendMsg();
+    }
+});
+
+/* ================= THREAT CHART ================= */
+
+const ctx = document.getElementById('threatChart');
+
+new Chart(ctx, {
+
+    type: 'bar',
+
+    data: {
+
+        labels: [
+            'Mon',
+            'Tue',
+            'Wed',
+            'Thu',
+            'Fri',
+            'Sat',
+            'Sun'
+        ],
+
+        datasets: [
+
+            {
+                label: 'Critical Threats',
+
+                data: [4, 6, 3, 8, 5, 7, 6],
+
+                backgroundColor: '#dc2626'
+            },
+
+            {
+                label: 'High Threats',
+
+                data: [8, 10, 6, 12, 9, 11, 10],
+
+                backgroundColor: '#f97316'
+            },
+
+            {
+                label: 'Medium Threats',
+
+                data: [12, 14, 10, 16, 13, 15, 14],
+
+                backgroundColor: '#eab308'
+            }
+        ]
+    },
+
+    options: {
+
+        responsive: true,
+
+        plugins: {
+
+            legend: {
+
+                labels: {
+                    color: '#111'
+                }
+            }
+        },
+
+        scales: {
+
+            x: {
+
+                ticks: {
+                    color: '#111'
+                }
+            },
+
+            y: {
+
+                ticks: {
+                    color: '#111'
+                }
+            }
+        }
+    }
+});
+
+</script>
+
+<!-- CHAT BUTTON -->
+<div id="chatButton" onclick="toggleChat()">
+    💬
+</div>
+
+<!-- CHAT POPUP -->
+<div id="chatPopup">
+
+    <div class="chat-header">
+        🧠 Analyst AI Assistant
+
+        <span onclick="toggleChat()"
+              style="float:right;cursor:pointer;">
+              ✖
+        </span>
+    </div>
+
+    <div id="messages"></div>
+
+    <div class="chat-input">
+
+        <input type="text"
+               id="msg"
+               placeholder="Ask about threats, attacks, logs...">
+
+        <button onclick="sendMsg()">
+            ➤
+        </button>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Safe Link Checker</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #38bdf8;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #22c55e;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #16a34a;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: #334155;
+        }
+
+        .safe {
+            color: #22c55e;
+        }
+
+        .unsafe {
+            color: #ef4444;
+        }
+
+        .note {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        a.back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #38bdf8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>🔗 Safe Link Checker</h2>
+
+    <!-- 🔐 DAILY TIP -->
+    <div class="tips-container">
+        <h2>🔐 Daily Cybersecurity Tip</h2>
+        <p id="dailyTip" class="tip-text"></p>
+    </div>
+
+    <!-- INPUT -->
+    <input type="text" id="urlInput" placeholder="Enter URL (https://example.com)">
+
+    <!-- BUTTON -->
+    <button onclick="checkLink()">Check Link</button>
+
+    <!-- SCAN ANIMATION -->
+    <div id="scanBox" class="scan-box" style="display:none;">
+        <p id="scanText"></p>
+        <div class="loader"></div>
+    </div>
+
+    <!-- 🔥 TERMINAL LOG BOX (ADD HERE) -->
+    <div id="terminalBox" class="terminal" style="display:none;"></div>
+
+    <div class="result" id="resultBox" style="display:none;"></div>
+
+    <!-- DAILY TIP (BOTTOM) -->
+<div class="tips-container">
+    <h2>🔐 Daily Cybersecurity Tip</h2>
+    <p id="dailyTip" class="tip-text"></p>
+
+</div>
+    <p class="note">
+        This is a demo checker. Connect backend API for real phishing detection.
+    </p>
+
+    <a class="back" href="/user">⬅ Back to Dashboard</a>
+</div>
+
+<script>
+
+    // =========================
+    // TYPE TEXT FUNCTION
+    // =========================
+    function typeText(element, text, speed = 80) {
+        element.innerHTML = "";
+        let i = 0;
+
+        let interval = setInterval(() => {
+            element.innerHTML += text.charAt(i);
+            i++;
+
+            if (i >= text.length) {
+                clearInterval(interval);
+            }
+        }, speed);
+    }
+
+
+    // =========================
+    // DAILY TIP SYSTEM
+    // =========================
+    const tips = [
+        "Never click unknown links sent via email or SMS.",
+        "Always verify website URLs before logging in.",
+        "Enable Multi-Factor Authentication (MFA).",
+        "Use strong passwords with symbols and numbers.",
+        "Avoid public Wi-Fi for banking or logins.",
+        "Keep your system and antivirus updated.",
+        "Do not download files from untrusted sources.",
+        "Check for HTTPS before entering sensitive data."
+    ];
+
+    function showDailyTip() {
+        const today = new Date().getDate();
+        const index = today % tips.length;
+        document.getElementById("dailyTip").innerText = tips[index];
+    }
+
+    showDailyTip();
+
+
+    // =========================
+    // TERMINAL LOGS
+    // =========================
+    function showLogs() {
+
+        const terminal = document.getElementById("terminalBox");
+        terminal.style.display = "block";
+        terminal.innerHTML = "";
+
+        let logs = [
+            "[+] Initializing scanner...",
+            "[+] Checking URL structure...",
+            "[+] Scanning domain reputation...",
+            "[+] Comparing threat database...",
+            "[+] Analyzing phishing patterns...",
+            "[+] Finalizing result..."
+        ];
+
+        let i = 0;
+
+        let interval = setInterval(() => {
+
+            if (i < logs.length) {
+                terminal.innerHTML += logs[i] + "<br>";
+                i++;
+            } else {
+                clearInterval(interval);
+            }
+
+        }, 500);
+    }
+
+
+    // =========================
+    // MAIN SCANNER FUNCTION (ONLY ONE!)
+    // =========================
+    function checkLink() {
+
+        let url = document.getElementById("urlInput").value;
+        let resultBox = document.getElementById("resultBox");
+        let scanBox = document.getElementById("scanBox");
+        let scanText = document.getElementById("scanText");
+        let terminalBox = document.getElementById("terminalBox");
+
+        if (!url) {
+            alert("Please enter a URL");
+            return;
+        }
+
+        // RESET UI
+        resultBox.style.display = "none";
+        terminalBox.style.display = "none";
+        scanBox.style.display = "block";
+
+        // typing animation
+        typeText(scanText, "Analyzing URL...");
+
+        // show logs
+        showLogs();
+
+        setTimeout(() => {
+
+            scanBox.style.display = "none";
+
+            let unsafeKeywords = ["login", "verify", "bank", "free", "password"];
+
+            let isUnsafe = unsafeKeywords.some(word =>
+                url.toLowerCase().includes(word)
+            );
+
+            resultBox.style.display = "block";
+
+            if (isUnsafe) {
+                resultBox.innerHTML =
+                    "⚠️ <b class='unsafe'>Threat Detected:</b> Suspicious link found!";
+            } else {
+                resultBox.innerHTML =
+                    "✅ <b class='safe'>Safe Link:</b> No threats detected.";
+            }
+
+        }, 3500);
+    }
+
+
+    // =========================
+    // ENTER KEY SUPPORT
+    // =========================
+    document.getElementById("urlInput").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            checkLink();
+        }
+    });
+
+</script>
+
+</body>
+</html>

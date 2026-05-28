@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Advanced Threats</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- MENU BUTTON -->
+
+<div class="menu-btn" onclick="toggleSidebar()">
+    ☰
+</div>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar" id="sidebar">
+
+    <h2>ADVANCED THREATS</h2>
+
+    <a href="/awareness">⬅ Back to Awareness</a>
+    <a href="/user">🏠 Dashboard</a>
+    <a href="/logout">🚪 Logout</a>
+
+</div>
+
+<!-- MAIN CONTENT -->
+
+<div class="main">
+
+    <button class="back-btn" onclick="history.back()">
+        ← Back
+    </button>
+
+    <h1>ADVANCED CYBER THREATS</h1>
+
+    <!-- ZERO DAY -->
+
+    <h2>1. Zero-Day Attack</h2>
+
+    <p><b>Definition:</b> An attack that exploits unknown software vulnerabilities before developers fix them.</p>
+
+    <h3>Causes</h3>
+    <ul>
+        <li>Unpatched software</li>
+        <li>Unknown vulnerabilities</li>
+        <li>Weak security testing</li>
+    </ul>
+
+    <h3>How to Identify</h3>
+    <ul>
+        <li>Unexpected system behavior</li>
+        <li>Unknown malware activity</li>
+        <li>Security alerts without known cause</li>
+    </ul>
+
+    <h3>Prevention</h3>
+    <ul>
+        <li>Update software regularly</li>
+        <li>Use advanced endpoint protection</li>
+        <li>Monitor suspicious activity</li>
+    </ul>
+
+    <!-- APT -->
+
+    <h2>2. Advanced Persistent Threat (APT)</h2>
+
+    <p><b>Definition:</b> Long-term targeted cyberattacks where attackers secretly remain inside systems.</p>
+
+    <h3>Causes</h3>
+    <ul>
+        <li>Weak network security</li>
+        <li>Phishing attacks</li>
+        <li>Insufficient monitoring</li>
+    </ul>
+
+    <h3>How to Identify</h3>
+    <ul>
+        <li>Unusual outbound traffic</li>
+        <li>Repeated unauthorized access</li>
+        <li>Data theft activity</li>
+    </ul>
+
+    <h3>Prevention</h3>
+    <ul>
+        <li>Use IDS/IPS systems</li>
+        <li>Implement network segmentation</li>
+        <li>Monitor logs continuously</li>
+    </ul>
+
+    <!-- SUPPLY CHAIN -->
+
+    <h2>3. Supply Chain Attack</h2>
+
+    <p><b>Definition:</b> Attackers compromise trusted vendors or software providers to target organizations.</p>
+
+    <h3>Causes</h3>
+    <ul>
+        <li>Third-party vulnerabilities</li>
+        <li>Compromised software updates</li>
+        <li>Weak vendor security</li>
+    </ul>
+
+    <h3>How to Identify</h3>
+    <ul>
+        <li>Unexpected software behavior</li>
+        <li>Malicious updates</li>
+        <li>Unauthorized system access</li>
+    </ul>
+
+    <h3>Prevention</h3>
+    <ul>
+        <li>Verify software integrity</li>
+        <li>Audit vendors regularly</li>
+        <li>Use trusted sources only</li>
+    </ul>
+
+    <!-- INSIDER THREAT -->
+
+    <h2>4. Insider Threat</h2>
+
+    <p><b>Definition:</b> Threats caused by employees or insiders misusing access privileges.</p>
+
+    <h3>Causes</h3>
+    <ul>
+        <li>Malicious employees</li>
+        <li>Negligence</li>
+        <li>Excessive access permissions</li>
+    </ul>
+
+    <h3>How to Identify</h3>
+    <ul>
+        <li>Unauthorized data access</li>
+        <li>Unusual file transfers</li>
+        <li>Policy violations</li>
+    </ul>
+
+    <h3>Prevention</h3>
+    <ul>
+        <li>Apply least privilege principle</li>
+        <li>Monitor employee activity</li>
+        <li>Conduct security awareness training</li>
+    </ul>
+
+    <!-- AI ATTACK -->
+
+    <h2>5. AI-Powered Cyberattack</h2>
+
+    <p><b>Definition:</b> Cyberattacks that use Artificial Intelligence for automation and evasion.</p>
+
+    <h3>Causes</h3>
+    <ul>
+        <li>AI automation tools</li>
+        <li>Deepfake technologies</li>
+        <li>Automated phishing systems</li>
+    </ul>
+
+    <h3>How to Identify</h3>
+    <ul>
+        <li>Advanced phishing messages</li>
+        <li>AI-generated fake content</li>
+        <li>Rapid automated attacks</li>
+    </ul>
+
+    <h3>Prevention</h3>
+    <ul>
+        <li>Use AI-based security systems</li>
+        <li>Verify suspicious communications</li>
+        <li>Educate users about deepfakes</li>
+    </ul>
+
+    <!-- CLOUD ATTACK -->
+
+    <h2>6. Cloud Security Attack</h2>
+
+    <p><b>Definition:</b> Attacks targeting cloud platforms, storage, or cloud services.</p>
+
+    <h3>Causes</h3>
+    <ul>
+        <li>Misconfigured cloud settings</li>
+        <li>Weak authentication</li>
+        <li>Insecure APIs</li>
+    </ul>
+
+    <h3>How to Identify</h3>
+    <ul>
+        <li>Unauthorized cloud access</li>
+        <li>Data exposure</li>
+        <li>Suspicious cloud activity</li>
+    </ul>
+
+    <h3>Prevention</h3>
+    <ul>
+        <li>Enable MFA</li>
+        <li>Encrypt cloud data</li>
+        <li>Use secure cloud configurations</li>
+    </ul>
+
+    <!-- IOT ATTACK -->
+
+    <h2>7. IoT Attack</h2>
+
+    <p><b>Definition:</b> Cyberattacks targeting Internet of Things devices such as smart cameras and sensors.</p>
+
+    <h3>Causes</h3>
+    <ul>
+        <li>Weak default passwords</li>
+        <li>Unpatched firmware</li>
+        <li>Insecure IoT devices</li>
+    </ul>
+
+    <h3>How to Identify</h3>
+    <ul>
+        <li>Unknown device activity</li>
+        <li>Slow network performance</li>
+        <li>Unauthorized remote access</li>
+    </ul>
+
+    <h3>Prevention</h3>
+    <ul>
+        <li>Change default passwords</li>
+        <li>Update firmware regularly</li>
+        <li>Segment IoT networks</li>
+    </ul>
+
+</div>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+function toggleSidebar() {
+
+    const sidebar = document.getElementById("sidebar");
+
+    if (sidebar.style.left === "0px") {
+        sidebar.style.left = "-250px";
+    } else {
+        sidebar.style.left = "0px";
+    }
+}
+
+</script>
+
+</body>
+</html>

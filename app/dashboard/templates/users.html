@@ -1,0 +1,34 @@
+<h1>User Management</h1>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Action</th>
+    </tr>
+
+    {% for user in users %}
+    <tr>
+        <td>{{ user["id"] }}</td>
+        <td>{{ user["username"] }}</td>
+        <td>{{ user["role"] }}</td>
+        <td><a href="/delete_user/{{ user['id'] }}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>Add User</h3>
+
+<form method="POST" action="/add_user">
+    <input name="username" placeholder="Username" required>
+    <input name="password" type="password" placeholder="Password" required>
+
+    <select name="role">
+        <option value="user">User</option>
+        <option value="analyst">Analyst</option>
+        <option value="admin">Admin</option>
+    </select>
+
+    <button type="submit">Add</button>
+</form>

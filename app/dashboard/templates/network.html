@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Network Attacks</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- MENU BUTTON -->
+
+<div class="menu-btn" onclick="toggleSidebar()">
+    ☰
+</div>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar" id="sidebar">
+
+    <h2>NETWORK ATTACKS</h2>
+
+    <a href="/awareness">⬅ Back to Awareness</a>
+    <a href="/user">🏠 Dashboard</a>
+    <a href="/logout">🚪 Logout</a>
+
+</div>
+
+<!-- MAIN CONTENT -->
+
+<div class="main">
+
+    <button class="back-btn" onclick="history.back()">
+        ← Back
+    </button>
+
+    <h1>NETWORK ATTACKS</h1>
+
+    <p>
+        Network attacks target computer networks, communication systems,
+        and internet-connected devices to steal data, interrupt services,
+        or gain unauthorized access.
+    </p>
+
+    <br>
+
+    <!-- DoS -->
+
+    <h2>1. Denial of Service (DoS)</h2>
+
+    <p><b>Definition:</b> A DoS attack floods a server with traffic to make it unavailable.</p>
+
+    <p><b>Causes:</b></p>
+    <ul>
+        <li>Server flooding</li>
+        <li>Bot traffic</li>
+        <li>Weak network protection</li>
+    </ul>
+
+    <p><b>How to Identify:</b></p>
+    <ul>
+        <li>Slow website/server</li>
+        <li>Network crash</li>
+        <li>Too many requests</li>
+    </ul>
+
+    <p><b>Prevention:</b></p>
+    <ul>
+        <li>Use firewall</li>
+        <li>Enable traffic filtering</li>
+        <li>Use rate limiting</li>
+    </ul>
+
+    <br>
+
+    <!-- DDoS -->
+
+    <h2>2. Distributed Denial of Service (DDoS)</h2>
+
+    <p><b>Definition:</b> Multiple systems attack a target server simultaneously.</p>
+
+    <p><b>Causes:</b></p>
+    <ul>
+        <li>Botnets</li>
+        <li>Compromised devices</li>
+        <li>Weak cloud protection</li>
+    </ul>
+
+    <p><b>How to Identify:</b></p>
+    <ul>
+        <li>Massive traffic spikes</li>
+        <li>Website downtime</li>
+        <li>Connection failures</li>
+    </ul>
+
+    <p><b>Prevention:</b></p>
+    <ul>
+        <li>DDoS protection services</li>
+        <li>Load balancing</li>
+        <li>Traffic monitoring</li>
+    </ul>
+
+    <br>
+
+    <!-- MITM -->
+
+    <h2>3. Man-in-the-Middle (MITM)</h2>
+
+    <p><b>Definition:</b> Attackers secretly intercept communication between users.</p>
+
+    <p><b>Causes:</b></p>
+    <ul>
+        <li>Unsecured Wi-Fi</li>
+        <li>Weak encryption</li>
+        <li>Fake access points</li>
+    </ul>
+
+    <p><b>How to Identify:</b></p>
+    <ul>
+        <li>Unexpected logouts</li>
+        <li>Data leakage</li>
+        <li>Suspicious connections</li>
+    </ul>
+
+    <p><b>Prevention:</b></p>
+    <ul>
+        <li>Use HTTPS</li>
+        <li>Use VPN</li>
+        <li>Avoid public Wi-Fi</li>
+    </ul>
+
+    <br>
+
+    <!-- ARP -->
+
+    <h2>4. ARP Spoofing</h2>
+
+    <p><b>Definition:</b> Fake ARP messages are sent to redirect network traffic.</p>
+
+    <p><b>Causes:</b></p>
+    <ul>
+        <li>Weak LAN security</li>
+        <li>Open networks</li>
+        <li>Unmanaged switches</li>
+    </ul>
+
+    <p><b>How to Identify:</b></p>
+    <ul>
+        <li>Duplicate MAC addresses</li>
+        <li>Slow connection</li>
+        <li>Unexpected traffic</li>
+    </ul>
+
+    <p><b>Prevention:</b></p>
+    <ul>
+        <li>Static ARP tables</li>
+        <li>Use IDS/IPS</li>
+        <li>Secure LAN setup</li>
+    </ul>
+
+    <br>
+
+    <!-- DNS -->
+
+    <h2>5. DNS Spoofing</h2>
+
+    <p><b>Definition:</b> Attackers redirect users to fake websites using fake DNS records.</p>
+
+    <p><b>Causes:</b></p>
+    <ul>
+        <li>Compromised DNS servers</li>
+        <li>Cache poisoning</li>
+        <li>Weak DNS security</li>
+    </ul>
+
+    <p><b>How to Identify:</b></p>
+    <ul>
+        <li>Wrong websites open</li>
+        <li>Fake login pages</li>
+        <li>Certificate warnings</li>
+    </ul>
+
+    <p><b>Prevention:</b></p>
+    <ul>
+        <li>Use DNSSEC</li>
+        <li>Use secure DNS providers</li>
+        <li>Enable HTTPS</li>
+    </ul>
+
+    <br>
+
+    <!-- PACKET SNIFFING -->
+
+    <h2>6. Packet Sniffing</h2>
+
+    <p><b>Definition:</b> Attackers capture network packets to steal information.</p>
+
+    <p><b>Causes:</b></p>
+    <ul>
+        <li>Unencrypted traffic</li>
+        <li>Open Wi-Fi</li>
+        <li>Weak protocols</li>
+    </ul>
+
+    <p><b>How to Identify:</b></p>
+    <ul>
+        <li>Network anomalies</li>
+        <li>Unauthorized monitoring tools</li>
+        <li>Data leaks</li>
+    </ul>
+
+    <p><b>Prevention:</b></p>
+    <ul>
+        <li>Encrypt communication</li>
+        <li>Use VPN</li>
+        <li>Secure Wi-Fi</li>
+    </ul>
+
+    <br>
+
+    <!-- EVIL TWIN -->
+
+    <h2>7. Evil Twin Attack</h2>
+
+    <p><b>Definition:</b> Fake Wi-Fi hotspots imitate legitimate networks.</p>
+
+    <p><b>Causes:</b></p>
+    <ul>
+        <li>Public Wi-Fi usage</li>
+        <li>Weak authentication</li>
+        <li>User negligence</li>
+    </ul>
+
+    <p><b>How to Identify:</b></p>
+    <ul>
+        <li>Duplicate Wi-Fi names</li>
+        <li>Unexpected login requests</li>
+        <li>Unsecured connections</li>
+    </ul>
+
+    <p><b>Prevention:</b></p>
+    <ul>
+        <li>Verify Wi-Fi names</li>
+        <li>Use VPN</li>
+        <li>Avoid unknown hotspots</li>
+    </ul>
+
+    <br>
+
+    <!-- SESSION HIJACKING -->
+
+    <h2>8. Session Hijacking</h2>
+
+    <p><b>Definition:</b> Attackers steal session IDs to access user accounts.</p>
+
+    <p><b>Causes:</b></p>
+    <ul>
+        <li>Weak session security</li>
+        <li>Cookie theft</li>
+        <li>Unencrypted sessions</li>
+    </ul>
+
+    <p><b>How to Identify:</b></p>
+    <ul>
+        <li>Unexpected logins</li>
+        <li>Session timeout issues</li>
+        <li>Unauthorized activity</li>
+    </ul>
+
+    <p><b>Prevention:</b></p>
+    <ul>
+        <li>Use HTTPS</li>
+        <li>Enable secure cookies</li>
+        <li>Use multi-factor authentication</li>
+    </ul>
+
+</div>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+function toggleSidebar() {
+
+    const sidebar = document.getElementById("sidebar");
+
+    if (sidebar.style.left === "0px") {
+        sidebar.style.left = "-250px";
+    } else {
+        sidebar.style.left = "0px";
+    }
+}
+
+</script>
+
+</body>
+</html>

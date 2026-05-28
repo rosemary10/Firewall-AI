@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>High Threats</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="main">
+
+    <button class="back-btn" onclick="history.back()">
+        ← Back
+    </button>
+
+    <h1 style="text-align:center; margin-bottom:30px;">
+        ⚠ High Threats
+    </h1>
+
+    <div style="
+        background:#0b1220;
+        padding:25px;
+        border-radius:16px;
+        box-shadow:0 0 20px rgba(0,0,0,0.3);
+        overflow-x:auto;
+    ">
+
+        <table class="log-table">
+
+            <tr>
+                <th>Timestamp</th>
+                <th>Source IP</th>
+                <th>Port</th>
+                <th>Threat Level</th>
+                <th>Message</th>
+            </tr>
+
+            {% for log in logs %}
+
+            <tr>
+
+                <td>{{ log.timestamp }}</td>
+
+                <td>{{ log.source_ip }}</td>
+
+                <td>{{ log.destination_port }}</td>
+
+                <td>
+                    <span class="high">
+                        {{ log.threat_level }}
+                    </span>
+                </td>
+
+                <td>{{ log.message }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

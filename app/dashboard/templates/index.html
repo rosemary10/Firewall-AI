@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Firewall Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            background: #0f1117;
+            color: #00ff88;
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        h1 { color: #ff4444; }
+        h2 { color: #00ffaa; }
+
+        a {
+            color: #00ff88;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+
+        a:hover { text-decoration: underline; }
+
+        .box {
+            background: #1c1f26;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #1c1f26;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+        }
+
+        .critical { color: red; font-weight: bold; }
+        .high { color: orange; font-weight: bold; }
+        .medium { color: yellow; font-weight: bold; }
+    </style>
+</head>
+
+<body>
+
+<h1>AI FIREWALL DASHBOARD</h1>
+
+<h3>Role: {{ role }}</h3>
+
+<!-- ADMIN MENU -->
+<div class="box">
+
+{% if role == "admin" %}
+    <h2>Admin Panel</h2>
+    <a href="/users">👤 Manage Users</a>
+    <a href="/download_report">📊 Download Report</a>
+    <a href="/blocked">🛑 Blocked IPs</a>
+    <a href="/critical">🚨 Critical</a>
+    <a href="/high">⚠️ High</a>
+    <a href="/medium">⚡ Medium</a>
+
+{% elif role == "analyst" %}
+    <h2>Analyst Panel</h2>
+    <a href="/critical">🚨 Critical</a>
+    <a href="/high">⚠️ High</a>
+
+{% else %}
+    <h2>User Panel</h2>
+    <p>Limited access</p>
+{% endif %}
+
+<a href="/logout">🚪 Logout</a>
+
+</div>
+
+<!-- STATS -->
+<div class="box">
+    <h2>Statistics</h2>
+    <p>Total Alerts: {{ total_alerts }}</p>
+    <p>Blocked IPs: {{ blocked_ips }}</p>
+    <p>Critical: {{ critical_count }}</p>
+    <p>High: {{ high_count }}</p>
+    <p>Medium: {{ medium_count }}</p>
+</div>
+
+<!-- 🔥 ADD THIS BELOW STATS -->
+<div class="box">
+    <h2>Threat Distribution</h2>
+    <canvas id="threatChart"></canvas>
+</div>
+
+<script>
+const ctx = document.getElementById('threatChart');
+
+new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Critical', 'High', 'Medium'],
+        datasets: [{
+            data: [
+                {{ critical_count }},
+                {{ high_count }},
+                {{ medium_count }}
+            ],
+            backgroundColor: ['#ff0000', '#ff8800', '#ffee00']
+        }]
+    }
+});
+</script>
+
+<!-- LOGS -->
+<div class="box">
+    <h2>Logs</h2>
+
+    <table>
+        <tr>
+            <th>Time</th>
+            <th>IP</th>
+            <th>Port</th>
+            <th>Threat</th>
+            <th>Message</th>
+        </tr>
+
+        {% for log in logs %}
+        <tr>
+            <td>{{ log.timestamp }}</td>
+            <td>{{ log.source_ip }}</td>
+            <td>{{ log.destination_port }}</td>
+            <td>{{ log.threat_level }}</td>
+            <td>{{ log.message }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Web Application Attacks</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- MENU BUTTON -->
+
+<div class="menu-btn" onclick="toggleSidebar()">
+    ☰
+</div>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar" id="sidebar">
+
+    <h2>WEB ATTACKS</h2>
+
+    <a href="/awareness">⬅ Back to Awareness</a>
+    <a href="/user">🏠 Dashboard</a>
+    <a href="/logout">🚪 Logout</a>
+
+</div>
+
+<!-- MAIN CONTENT -->
+
+<div class="main">
+
+    <button class="back-btn" onclick="history.back()">
+        ← Back
+    </button>
+
+    <h1>WEB APPLICATION ATTACKS</h1>
+
+    <p>
+        Web application attacks target websites and online applications
+        by exploiting vulnerabilities in web servers, databases,
+        authentication systems, and user inputs.
+    </p>
+
+    <br>
+
+    <!-- SQL Injection -->
+
+    <h2>1. SQL Injection (SQLi)</h2>
+
+    <p><b>Definition:</b> Attackers inject malicious SQL queries into web applications.</p>
+
+    <p><b>Causes:</b></p>
+    <ul>
+        <li>Poor input validation</li>
+        <li>Unsafe database queries</li>
+        <li>Weak web security</li>
+    </ul>
+
+    <p><b>How to Identify:</b></p>
+    <ul>
+        <li>Database errors</li>
+        <li>Unexpected login bypass</li>
+        <li>Suspicious query behavior</li>
+    </ul>
+
+    <p><b>Prevention:</b></p>
+    <ul>
+        <li>Use parameterized queries</li>
+        <li>Validate user input</li>
+        <li>Use WAF protection</li>
+    </ul>
+
+    <br>
+
+    <!-- XSS -->
+
+    <h2>2. Cross-Site Scripting (XSS)</h2>
+
+    <p><b>Definition:</b> Attackers inject malicious scripts into websites.</p>
+
+    <p><b>Causes:</b></p>
+    <ul>
+        <li>Unfiltered user input</li>
+        <li>Weak frontend security</li>
+        <li>Improper validation</li>
+    </ul>
+
+    <p><b>How to Identify:</b></p>
+    <ul>
+        <li>Popup alerts</li>
+        <li>Unexpected redirects</li>
+        <li>Strange webpage behavior</li>
+    </ul>
+
+    <p><b>Prevention:</b></p>
+    <ul>
+        <li>Sanitize inputs</li>
+        <li>Use Content Security Policy</li>
+        <li>Escape HTML output</li>
+    </ul>
+
+    <br>
+
+    <!-- CSRF -->
+
+    <h2>3. Cross-Site Request Forgery (CSRF)</h2>
+
+    <p><b>Definition:</b> Tricks users into performing unwanted actions on websites.</p>
+
+    <p><b>Causes:</b></p>
+    <ul>
+        <li>Weak session handling</li>
+        <li>No CSRF tokens</li>
+        <li>Poor authentication controls</li>
+    </ul>
+
+    <p><b>How to Identify:</b></p>
+    <ul>
+        <li>Unauthorized account actions</li>
+        <li>Unexpected password changes</li>
+        <li>Suspicious requests</li>
+    </ul>
+
+    <p><b>Prevention:</b></p>
+    <ul>
+        <li>Use CSRF tokens</li>
+        <li>Enable same-site cookies</li>
+        <li>Use MFA</li>
+    </ul>
+
+    <br>
+
+    <!-- FILE INCLUSION -->
+
+    <h2>4. File Inclusion Attack</h2>
+
+    <p><b>Definition:</b> Attackers include malicious files into a web application.</p>
+
+    <p><b>Causes:</b></p>
+    <ul>
+        <li>Unsafe file handling</li>
+        <li>Improper validation</li>
+        <li>Weak server configuration</li>
+    </ul>
+
+    <p><b>How to Identify:</b></p>
+    <ul>
+        <li>Unexpected files executed</li>
+        <li>Unauthorized access</li>
+        <li>Server errors</li>
+    </ul>
+
+    <p><b>Prevention:</b></p>
+    <ul>
+        <li>Restrict file access</li>
+        <li>Validate file paths</li>
+        <li>Disable remote inclusion</li>
+    </ul>
+
+    <br>
+
+    <!-- DIRECTORY TRAVERSAL -->
+
+    <h2>5. Directory Traversal</h2>
+
+    <p><b>Definition:</b> Attackers access restricted directories on a server.</p>
+
+    <p><b>Causes:</b></p>
+    <ul>
+        <li>Weak path validation</li>
+        <li>Improper file permissions</li>
+        <li>Unsafe coding practices</li>
+    </ul>
+
+    <p><b>How to Identify:</b></p>
+    <ul>
+        <li>Unauthorized file access</li>
+        <li>System file exposure</li>
+        <li>Unexpected downloads</li>
+    </ul>
+
+    <p><b>Prevention:</b></p>
+    <ul>
+        <li>Restrict file permissions</li>
+        <li>Sanitize file paths</li>
+        <li>Use secure coding</li>
+    </ul>
+
+    <br>
+
+    <!-- COMMAND INJECTION -->
+
+    <h2>6. Command Injection</h2>
+
+    <p><b>Definition:</b> Attackers execute system commands through applications.</p>
+
+    <p><b>Causes:</b></p>
+    <ul>
+        <li>Improper input validation</li>
+        <li>Unsafe command execution</li>
+        <li>Weak backend security</li>
+    </ul>
+
+    <p><b>How to Identify:</b></p>
+    <ul>
+        <li>Unexpected server activity</li>
+        <li>Unknown processes running</li>
+        <li>Unauthorized commands</li>
+    </ul>
+
+    <p><b>Prevention:</b></p>
+    <ul>
+        <li>Validate all inputs</li>
+        <li>Avoid system command execution</li>
+        <li>Use least privilege principle</li>
+    </ul>
+
+    <br>
+
+    <!-- CLICKJACKING -->
+
+    <h2>7. Clickjacking</h2>
+
+    <p><b>Definition:</b> Users are tricked into clicking hidden malicious elements.</p>
+
+    <p><b>Causes:</b></p>
+    <ul>
+        <li>Missing frame protection</li>
+        <li>Weak UI security</li>
+        <li>Unsafe iframe usage</li>
+    </ul>
+
+    <p><b>How to Identify:</b></p>
+    <ul>
+        <li>Unexpected clicks</li>
+        <li>Invisible buttons</li>
+        <li>Unauthorized actions</li>
+    </ul>
+
+    <p><b>Prevention:</b></p>
+    <ul>
+        <li>Use X-Frame-Options</li>
+        <li>Enable CSP</li>
+        <li>Restrict iframe embedding</li>
+    </ul>
+
+    <br>
+
+    <!-- BROKEN AUTHENTICATION -->
+
+    <h2>8. Broken Authentication</h2>
+
+    <p><b>Definition:</b> Weak authentication allows attackers to access accounts.</p>
+
+    <p><b>Causes:</b></p>
+    <ul>
+        <li>Weak passwords</li>
+        <li>Improper session handling</li>
+        <li>Poor authentication mechanisms</li>
+    </ul>
+
+    <p><b>How to Identify:</b></p>
+    <ul>
+        <li>Unauthorized logins</li>
+        <li>Session hijacking</li>
+        <li>Credential abuse</li>
+    </ul>
+
+    <p><b>Prevention:</b></p>
+    <ul>
+        <li>Enable MFA</li>
+        <li>Use strong passwords</li>
+        <li>Secure session management</li>
+    </ul>
+
+</div>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+function toggleSidebar() {
+
+    const sidebar = document.getElementById("sidebar");
+
+    if (sidebar.style.left === "0px") {
+        sidebar.style.left = "-250px";
+    } else {
+        sidebar.style.left = "0px";
+    }
+}
+
+</script>
+
+</body>
+</html>
