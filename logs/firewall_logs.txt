@@ -1609,3 +1609,4 @@
 2026-05-28 14:43:15 | ALERT | Attack Type: None | IP: 34.201.247.42 | Port: 4544 | Threat: MEDIUM | United States, Ashburn, Amazon.com, Inc.
 2026-05-28 14:43:18 | ALERT | Attack Type: None | IP: 44.250.86.60 | Port: 13296 | Threat: MEDIUM | United States, Portland, Amazon.com, Inc.
 2026-05-28 14:43:58 | ALERT | Attack Type: None | IP: 104.208.16.95 | Port: 10658 | Threat: MEDIUM | United States, Des Moines, Microsoft Corporation
+2026-05-28 14:48:18 | ALERT | Attack Type: None | IP: 20.42.73.27 | Port: 13729 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation
