@@ -1698,3 +1698,14 @@
 2026-05-28 19:24:40 | ALERT | Attack Type: None | IP: 142.251.222.174 | Port: 65064 | Threat: MEDIUM | United States, Mountain View, Google LLC
 2026-05-28 19:24:45 | ALERT | Attack Type: None | IP: 51.132.193.104 | Port: 8515 | Threat: MEDIUM | United Kingdom, City of London, Microsoft
 2026-05-28 19:27:45 | ALERT | Attack Type: None | IP: 52.168.112.67 | Port: 2142 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation
+2026-05-28 19:30:14 | ALERT | Attack Type: None | IP: 20.135.6.7 | Port: 8955 | Threat: MEDIUM | United States, Phoenix, Microsoft Corporation
+2026-05-28 19:30:16 | ALERT | Attack Type: None | IP: 20.60.225.65 | Port: 8957 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation
+2026-05-28 19:31:48 | ALERT | Attack Type: None | IP: 198.137.150.231 | Port: 10186 | Threat: MEDIUM | United States, San Francisco, Amazon.com, Inc.
+2026-05-28 19:31:52 | ALERT | Attack Type: None | IP: 167.82.61.140 | Port: 2006 | Threat: MEDIUM | United States, New York, Fastly, Inc.
+2026-05-28 19:31:54 | ALERT | Attack Type: None | IP: 18.161.246.72 | Port: 58232 | Threat: MEDIUM | United States, Seattle, Amazon.com, Inc.
+2026-05-28 19:31:56 | ALERT | Attack Type: None | IP: 34.210.180.221 | Port: 8863 | Threat: MEDIUM | United States, Portland, Amazon.com, Inc.
+2026-05-28 19:31:59 | ALERT | Attack Type: None | IP: 54.204.8.87 | Port: 6430 | Threat: MEDIUM | United States, Ashburn, Amazon.com, Inc.
+2026-05-28 19:32:07 | ALERT | Attack Type: None | IP: 18.97.36.46 | Port: 14537 | Threat: MEDIUM | United States, Ashburn, Amazon.com, Inc.
+2026-05-28 19:33:15 | ALERT | Attack Type: None | IP: 51.116.253.170 | Port: 9997 | Threat: MEDIUM | Germany, Frankfurt am Main, Microsoft Corporation
+2026-05-28 19:33:35 | ALERT | Attack Type: None | IP: 20.189.173.15 | Port: 10282 | Threat: MEDIUM | United States, San Francisco, Microsoft Corporation
+2026-05-28 19:40:26 | ALERT | Attack Type: None | IP: 20.42.65.91 | Port: 3141 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation

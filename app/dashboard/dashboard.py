@@ -1,3 +1,6 @@
+# COMPLETE `dashboard.py`
+
+```python
 from flask import Flask, render_template, request, redirect, url_for, session, Response
 from werkzeug.security import check_password_hash, generate_password_hash
 import sqlite3
@@ -11,12 +14,14 @@ app.secret_key = "SUPER_SECURE_SENTINELAI_SECRET_KEY_2026"
 
 # ================= DB =================
 def get_db_connection():
+
     conn = sqlite3.connect(
         "firewall.db",
         timeout=10
     )
 
     conn.row_factory = sqlite3.Row
+
     return conn
 
 # ================= AUTH =================
@@ -43,18 +48,16 @@ def register():
 
         email = request.form.get("email").strip()
         mobile = request.form.get("mobile").strip()
+
         password = request.form.get("password")
         confirm_password = request.form.get("confirm_password")
 
-        # PASSWORD RULE
         pattern = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$"
 
-        # PASSWORD MATCH
         if password != confirm_password:
 
             error = "Passwords do not match"
 
-        # PASSWORD VALIDATION
         elif not re.match(pattern, password):
 
             error = """
@@ -70,13 +73,11 @@ Password must contain:
 
             conn = get_db_connection()
 
-            # CHECK EMAIL
             existing_email = conn.execute(
                 "SELECT * FROM users WHERE email=?",
                 (email,)
             ).fetchone()
 
-            # CHECK MOBILE
             existing_mobile = conn.execute(
                 "SELECT * FROM users WHERE mobile=?",
                 (mobile,)
@@ -88,7 +89,7 @@ Password must contain:
 
             elif existing_mobile:
 
-                error = "Mobile number already registered"
+                error = "Mobile already registered"
 
             else:
 
@@ -161,6 +162,7 @@ WHERE email=? OR mobile=?
                 return redirect(url_for("user_dashboard"))
 
         else:
+
             error = "Invalid credentials"
 
     return render_template(
@@ -265,10 +267,13 @@ def user_dashboard():
 
     conn = get_db_connection()
 
-    user = conn.execute(
-        "SELECT * FROM users WHERE email=?",
-        (session.get("user_email"),)
-    ).fetchone()
+    user = conn.execute("""
+SELECT *
+FROM users
+WHERE email=?
+""", (
+    session.get("user_email"),
+)).fetchone()
 
     conn.close()
 
@@ -373,93 +378,6 @@ ORDER BY id DESC
         "top_counts": list(ip_counter.values())[:10]
     }
 
-# ================= BLOCKED IPS =================
-@app.route("/blocked")
-def blocked():
-
-    if not is_admin():
-        return "ACCESS DENIED", 403
-
-    conn = get_db_connection()
-
-    ips = conn.execute("""
-SELECT DISTINCT source_ip
-FROM logs
-""").fetchall()
-
-    conn.close()
-
-    return render_template(
-        "blocked.html",
-        ips=ips
-    )
-
-# ================= CRITICAL =================
-@app.route("/critical")
-def critical():
-
-    if not (is_admin() or is_analyst()):
-        return "ACCESS DENIED", 403
-
-    conn = get_db_connection()
-
-    logs = conn.execute("""
-SELECT *
-FROM logs
-WHERE threat_level='CRITICAL'
-""").fetchall()
-
-    conn.close()
-
-    return render_template(
-        "critical.html",
-        logs=logs
-    )
-
-# ================= HIGH =================
-@app.route("/high")
-def high():
-
-    if not (is_admin() or is_analyst()):
-        return "ACCESS DENIED", 403
-
-    conn = get_db_connection()
-
-    logs = conn.execute("""
-SELECT *
-FROM logs
-WHERE threat_level='HIGH'
-""").fetchall()
-
-    conn.close()
-
-    return render_template(
-        "high.html",
-        logs=logs
-    )
-
-# ================= MEDIUM =================
-@app.route("/medium")
-def medium():
-
-    if not (is_admin() or is_analyst()):
-        return "ACCESS DENIED", 403
-
-    conn = get_db_connection()
-
-    logs = conn.execute("""
-SELECT *
-FROM logs
-WHERE threat_level='MEDIUM'
-""").fetchall()
-
-    conn.close()
-
-    return render_template(
-        "medium.html",
-        logs=logs
-    )
-
 # ================= USERS =================
 @app.route("/users")
 def users():
@@ -481,44 +399,37 @@ FROM users
         users=users
     )
 
-# ================= DOWNLOAD REPORT =================
-@app.route("/download_report")
-def download_report():
+# ================= CHAT =================
+@app.route("/chat", methods=["POST"])
+def chat():
 
-    if not is_admin():
-        return "ACCESS DENIED", 403
+    if not check_authentication():
+        return {"error": "unauthorized"}
 
-    logs, stats = load_logs()
+    user_msg = request.json.get("message")
 
-    def generate():
+    response = "I can help with cybersecurity awareness."
 
-        yield "SENTINELAI REPORT\n\n"
+    if "phishing" in user_msg.lower():
 
-        yield f"Total Alerts: {stats['total_alerts']}\n"
+        response = "Phishing is a cyber attack where attackers trick users into revealing sensitive information."
 
-        yield f"Critical: {stats['critical_count']}\n"
+    elif "sql injection" in user_msg.lower():
 
-        yield f"High: {stats['high_count']}\n"
+        response = "SQL Injection is a web attack where malicious SQL code is inserted into database queries."
 
-        yield f"Medium: {stats['medium_count']}\n\n"
+    return {
+        "reply": response
+    }
 
-        for log in logs[:20]:
+# ================= SAFE LINK =================
+@app.route("/safe_link_checker")
+def safe_link_checker():
 
-            yield f"""
-{log['timestamp']} |
-{log['source_ip']} |
-{log['threat_level']} |
-{log['message']}
-"""
+    if not check_authentication():
+        return redirect(url_for("login"))
 
-    return Response(
-        generate(),
-        mimetype="text/plain",
-        headers={
-            "Content-Disposition":
-            "attachment;filename=report.txt"
-        }
-    )
+    return render_template("safe_link_checker.html")
 
 # ================= AWARENESS =================
 @app.route("/awareness")
@@ -529,106 +440,7 @@ def awareness():
 
     return render_template("awareness.html")
 
-# ================= CATEGORY PAGES =================
-@app.route("/malware")
-def malware():
-    return render_template("malware.html")
-
-@app.route("/social")
-def social():
-    return render_template("social.html")
-
-@app.route("/network")
-def network():
-    return render_template("network.html")
-
-@app.route("/webattacks")
-def webattacks():
-    return render_template("webattacks.html")
-
-@app.route("/password")
-def password():
-    return render_template("password.html")
-
-@app.route("/advanced")
-def advanced():
-    return render_template("advanced.html")
-
-# ================= SAFE LINK CHECKER =================
-@app.route("/safe_link_checker")
-def safe_link_checker():
-
-    if not check_authentication():
-        return redirect(url_for("login"))
-
-    return render_template("safe_link_checker.html")
-
-# ================= CHATBOT =================
-@app.route("/chatbot")
-def chatbot():
-
-    if not check_authentication():
-        return redirect(url_for("login"))
-
-    return render_template("chatbot.html")
-
-# ================= CHAT API =================
-@app.route("/chat", methods=["POST"])
-def chat():
-
-    if not check_authentication():
-        return {"error": "unauthorized"}
-
-    user_msg = request.json.get("message")
-
-    role = session.get("role")
-
-    response = ""
-
-    if "phishing" in user_msg.lower():
-
-        response = """
-Phishing is a cyber attack where
-attackers trick users into revealing
-sensitive information.
-"""
-
-    elif "sql injection" in user_msg.lower():
-
-        response = """
-SQL Injection is a web attack where
-malicious SQL code is inserted
-into database queries.
-"""
-
-    elif role == "analyst":
-
-        response = """
-Analyst mode:
-Check logs, anomaly patterns,
-and threat indicators carefully.
-"""
-
-    elif role == "user":
-
-        response = """
-User tip:
-Never click unknown links
-and always enable MFA.
-"""
-
-    else:
-
-        response = """
-I can help you with
-cybersecurity questions.
-"""
-
-    return {
-        "reply": response
-    }
-
-# ================= DEBUG =================
+# ================= TEST =================
 @app.route("/test")
 def test():
     return "WORKING"
@@ -644,3 +456,4 @@ if __name__ == "__main__":
         host="0.0.0.0",
         port=port
     )
+```

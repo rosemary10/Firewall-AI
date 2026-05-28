@@ -1,85 +1,198 @@
+```html
 <!DOCTYPE html>
 <html>
 
 <head>
+
     <title>User Dashboard</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
 
     <style>
-        /* ================= CHAT BUTTON ================= */
-        #chatButton {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: #22c55e;
+
+        /* ================= ANIMATED TITLE ================= */
+
+        .animated-title {
+
+            text-align: center;
+
+            font-size: 42px;
+
+            font-weight: bold;
+
+            margin-bottom: 30px;
+
             color: white;
+
+            letter-spacing: 2px;
+        }
+
+        .shield {
+
+            display: inline-block;
+
+            animation: shieldMove 2s infinite ease-in-out;
+
+            font-size: 45px;
+        }
+
+        @keyframes shieldMove {
+
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            25% {
+                transform: translateY(-6px) rotate(-8deg);
+            }
+
+            50% {
+                transform: translateY(0px) rotate(8deg);
+            }
+
+            75% {
+                transform: translateY(-6px) rotate(-8deg);
+            }
+
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+
+        /* ================= CHAT BUTTON ================= */
+
+        #chatButton {
+
+            position: fixed;
+
+            bottom: 25px;
+
+            right: 25px;
+
+            background: #22c55e;
+
+            color: white;
+
             width: 60px;
+
             height: 60px;
+
             border-radius: 50%;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             font-size: 28px;
+
             cursor: pointer;
+
             box-shadow: 0 0 10px rgba(0,0,0,0.4);
+
             z-index: 9999;
         }
 
         /* ================= CHAT POPUP ================= */
+
         #chatPopup {
+
             position: fixed;
+
             bottom: 100px;
+
             right: 25px;
+
             width: 320px;
+
             height: 420px;
+
             background: #1e293b;
+
             border-radius: 12px;
+
             display: none;
+
             flex-direction: column;
+
             overflow: hidden;
+
             box-shadow: 0 0 20px rgba(0,0,0,0.5);
+
             z-index: 9999;
         }
 
         .chat-header {
+
             background: #0f172a;
+
             padding: 10px;
+
             color: white;
+
             font-weight: bold;
         }
 
         #messages {
+
             flex: 1;
+
             padding: 10px;
+
             overflow-y: auto;
+
             background: black;
         }
 
         .chat-input {
+
             display: flex;
+
             padding: 10px;
+
             gap: 5px;
+
             background: #0f172a;
         }
 
         .chat-input input {
+
             flex: 1;
+
             padding: 8px;
         }
 
         .chat-input button {
+
             padding: 8px 12px;
+
             background: #22c55e;
+
             border: none;
+
             color: white;
+
             cursor: pointer;
         }
 
-        .user { color: #38bdf8; margin: 5px 0; }
-        .bot { color: #22c55e; margin: 5px 0; }
+        .user {
+
+            color: #38bdf8;
+
+            margin: 5px 0;
+        }
+
+        .bot {
+
+            color: #22c55e;
+
+            margin: 5px 0;
+        }
+
     </style>
+
 </head>
 
 <body>
@@ -94,7 +207,6 @@
 
     <a href="/user">🏠 Dashboard</a>
 
-    <!-- 🔥 FIXED: conditional menu items -->
     {% if awareness_training_enabled == 1 %}
         <a href="/awareness">🧠 Awareness Training</a>
     {% endif %}
@@ -108,21 +220,29 @@
 </div>
 
 <!-- MAIN -->
-<!-- MAIN -->
 <div class="main">
 
     <h1 class="animated-title">
-    WELCOME TO SENTINELAI
-    <span class="shield">🛡️</span>
+
+        WELCOME TO SENTINELAI
+
+        <span class="shield">🛡️</span>
+
     </h1>
 
+    <!-- HERO -->
     <div class="hero-box">
+
         <h2>Cybersecurity Awareness Portal</h2>
+
         <p>
+
             Learn cyberattack prevention, identify threats,
             and stay protected against hackers, phishing,
             ransomware, and malicious links.
+
         </p>
+
     </div>
 
     <!-- FEATURE CARDS -->
@@ -130,75 +250,117 @@
 
         {% if awareness_training_enabled %}
         <div class="category-card">
+
             <h2>🧠 Awareness Training</h2>
-            <p>Learn cyber safety basics and attack prevention techniques.</p>
-            <a href="/awareness">Start Learning</a>
+
+            <p>
+                Learn cyber safety basics and attack prevention techniques.
+            </p>
+
+            <a href="/awareness">
+                Start Learning
+            </a>
+
         </div>
         {% endif %}
 
         {% if safe_link_checker_enabled %}
         <div class="category-card">
+
             <h2>🔗 Safe Link Checker</h2>
-            <p>Check whether a link is safe or malicious before clicking.</p>
-            <a href="/safe_link_checker">Check Link</a>
+
+            <p>
+                Check whether a link is safe or malicious before clicking.
+            </p>
+
+            <a href="/safe_link_checker">
+                Check Link
+            </a>
+
         </div>
         {% endif %}
 
+        <!-- PASSWORD CHECKER -->
         <div class="category-card">
-        <h2>🔐 Password Strength Checker</h2>
 
-        <p>
-            Test how strong your password is against cyber attacks.
-        </p>
+            <h2>🔐 Password Strength Checker</h2>
 
-        <a href="/password_checker">
-            Check Password
-        </a>
+            <p>
+                Test how strong your password is against cyber attacks.
+            </p>
+
+            <a href="/password_checker">
+                Check Password
+            </a>
+
+        </div>
+
+        <!-- QUIZ -->
+        <div class="category-card">
+
+            <h2>🧠 Cybersecurity Quiz</h2>
+
+            <p>
+                Test your cybersecurity knowledge with interactive quizzes.
+            </p>
+
+            <a href="/quiz">
+                Start Quiz
+            </a>
+
+        </div>
+
     </div>
 
+    <!-- DAILY TIPS -->
+    <div class="tips-strip">
 
-         <!-- QUIZ CARD -->
-    <div class="category-card">
-    <h2>🧠 Cybersecurity Quiz</h2>
-    <p>Test your cybersecurity knowledge with interactive quizzes.</p>
-    <a href="/quiz">Start Quiz</a>
-    </div>
+        <h2>💡 Today's Cyber Security Tip</h2>
 
-</div>
+        <div class="tips-scroll">
 
-<!-- DAILY CYBER TIP (LEVEL 2 - DYNAMIC) -->
-<div class="tips-strip">
+            <div class="tip">
 
-    <h2>💡 Today's Cyber Security Tip</h2>
+                {{ daily_tip }}
 
-    <div class="tips-scroll">
+            </div>
 
-        <div class="tip">
-            {{ daily_tip }}
         </div>
 
     </div>
 
 </div>
 
-</div>
-    <!-- CHAT BUTTON -->
-    <div id="chatButton" onclick="toggleChat()">💬</div>
+<!-- CHAT BUTTON -->
+<div id="chatButton" onclick="toggleChat()">💬</div>
 
-    <!-- CHAT POPUP -->
-    <div id="chatPopup">
+<!-- CHAT POPUP -->
+<div id="chatPopup">
 
-        <div class="chat-header">
-            🧠 Ross AI Assistant
-            <span onclick="toggleChat()" style="float:right;cursor:pointer;">✖</span>
-        </div>
+    <div class="chat-header">
 
-        <div id="messages"></div>
+        🧠 Ross AI Assistant
 
-        <div class="chat-input">
-            <input type="text" id="msg" placeholder="Ask something...">
-            <button onclick="sendMsg()">➤</button>
-        </div>
+        <span
+            onclick="toggleChat()"
+            style="float:right;cursor:pointer;"
+        >
+            ✖
+        </span>
+
+    </div>
+
+    <div id="messages"></div>
+
+    <div class="chat-input">
+
+        <input
+            type="text"
+            id="msg"
+            placeholder="Ask something..."
+        >
+
+        <button onclick="sendMsg()">➤</button>
 
     </div>
 
@@ -207,26 +369,40 @@
 <script>
 
 function toggleSidebar() {
+
     const sidebar = document.getElementById("sidebar");
-    sidebar.style.left = (sidebar.style.left === "0px") ? "-250px" : "0px";
+
+    sidebar.style.left =
+        (sidebar.style.left === "0px")
+        ? "-250px"
+        : "0px";
 }
 
 /* ================= CHAT TOGGLE ================= */
+
 function toggleChat() {
 
     let popup = document.getElementById("chatPopup");
 
     if (popup.style.display === "flex") {
+
         popup.style.display = "none";
+
     } else {
+
         popup.style.display = "flex";
 
         if (!popup.dataset.loaded) {
+
             popup.dataset.loaded = "true";
 
             document.getElementById("messages").innerHTML += `
+
                 <div class='bot'>
-                    Ross: Hi, I'm Ross 🤖 How can I help you today?
+
+                    Ross: Hi, I'm Ross 🤖
+                    How can I help you today?
+
                 </div>
             `;
         }
@@ -234,35 +410,60 @@ function toggleChat() {
 }
 
 /* ================= SEND MESSAGE ================= */
+
 async function sendMsg() {
 
-    let msg = document.getElementById("msg").value.trim();
-    let box = document.getElementById("messages");
+    let msg =
+        document.getElementById("msg").value.trim();
+
+    let box =
+        document.getElementById("messages");
 
     if (!msg) return;
 
-    box.innerHTML += `<div class='user'>You: ${msg}</div>`;
+    box.innerHTML += `
+        <div class='user'>
+            You: ${msg}
+        </div>
+    `;
 
     let res = await fetch("/chat", {
+
         method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({message: msg})
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            message: msg
+        })
     });
 
     let data = await res.json();
 
-    box.innerHTML += `<div class='bot'>Ross: ${data.reply}</div>`;
+    box.innerHTML += `
+        <div class='bot'>
+            Ross: ${data.reply}
+        </div>
+    `;
 
     document.getElementById("msg").value = "";
+
     box.scrollTop = box.scrollHeight;
 }
 
 /* ================= ENTER KEY ================= */
-document.getElementById("msg").addEventListener("keypress", function(e){
-    if (e.key === "Enter") sendMsg();
+
+document.getElementById("msg")
+.addEventListener("keypress", function(e){
+
+    if (e.key === "Enter")
+        sendMsg();
 });
 
 </script>
 
 </body>
 </html>
+```
