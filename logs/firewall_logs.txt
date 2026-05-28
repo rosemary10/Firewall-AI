@@ -1610,3 +1610,13 @@
 2026-05-28 14:43:18 | ALERT | Attack Type: None | IP: 44.250.86.60 | Port: 13296 | Threat: MEDIUM | United States, Portland, Amazon.com, Inc.
 2026-05-28 14:43:58 | ALERT | Attack Type: None | IP: 104.208.16.95 | Port: 10658 | Threat: MEDIUM | United States, Des Moines, Microsoft Corporation
 2026-05-28 14:48:18 | ALERT | Attack Type: None | IP: 20.42.73.27 | Port: 13729 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation
+2026-05-28 14:49:26 | ALERT | Attack Type: None | IP: 52.36.164.128 | Port: 10574 | Threat: MEDIUM | United States, Portland, Amazon.com, Inc.
+2026-05-28 14:50:17 | ALERT | Attack Type: None | IP: 140.82.113.22 | Port: 10864 | Threat: MEDIUM | United States, San Francisco, GitHub, Inc.
+2026-05-28 14:50:20 | ALERT | Attack Type: None | IP: 140.82.113.26 | Port: 7248 | Threat: MEDIUM | United States, San Francisco, GitHub, Inc.
+2026-05-28 14:50:57 | ALERT | Attack Type: None | IP: 52.168.117.174 | Port: 6449 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation
+2026-05-28 14:51:55 | ALERT | Attack Type: None | IP: 52.168.117.169 | Port: 1598 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation
+2026-05-28 14:59:23 | ALERT | Attack Type: None | IP: 20.189.173.5 | Port: 6111 | Threat: MEDIUM | United States, San Francisco, Microsoft Corporation
+2026-05-28 14:59:47 | ALERT | Attack Type: None | IP: 51.116.253.168 | Port: 3895 | Threat: MEDIUM | Germany, Frankfurt am Main, Microsoft Corporation
+2026-05-28 15:00:06 | ALERT | Attack Type: None | IP: 72.154.7.105 | Port: 3901 | Threat: MEDIUM | United States, Quincy, Microsoft Corporation
+2026-05-28 15:00:08 | ALERT | Attack Type: None | IP: 20.189.173.18 | Port: 3903 | Threat: MEDIUM | United States, San Francisco, Microsoft Corporation
+2026-05-28 15:00:10 | ALERT | Attack Type: None | IP: 23.220.98.45 | Port: 3905 | Threat: MEDIUM | India, Chennai, Akamai Technologies, Inc.
