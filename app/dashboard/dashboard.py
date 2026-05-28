@@ -306,13 +306,19 @@ WHERE email=?
         role="user",
 
         awareness_training_enabled=
-            user["awareness_training_enabled"],
+            user["awareness_training_enabled"]
+            if "awareness_training_enabled" in user.keys()
+            else 1,
 
         safe_link_checker_enabled=
-            user["safe_link_checker_enabled"],
+            user["safe_link_checker_enabled"]
+            if "safe_link_checker_enabled" in user.keys()
+            else 1,
 
         tips_enabled=
-            user["tips_enabled"],
+            user["tips_enabled"]
+            if "tips_enabled" in user.keys()
+            else 1,
 
         daily_tip=daily_tip
     )

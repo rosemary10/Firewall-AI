@@ -1725,3 +1725,9 @@
 2026-05-28 20:16:10 | ALERT | Attack Type: None | IP: 52.182.143.211 | Port: 13020 | Threat: MEDIUM | United States, Des Moines, Microsoft Corporation
 2026-05-28 20:21:25 | ALERT | Attack Type: None | IP: 140.82.113.21 | Port: 11930 | Threat: MEDIUM | United States, San Francisco, GitHub, Inc.
 2026-05-28 20:22:54 | ALERT | Attack Type: None | IP: 140.82.114.21 | Port: 2969 | Threat: MEDIUM | United States, San Francisco, GitHub, Inc.
+2026-05-28 20:23:59 | ALERT | Attack Type: None | IP: 13.228.224.121 | Port: 7498 | Threat: MEDIUM | Singapore, Singapore, Amazon Technologies Inc.
+2026-05-28 20:24:03 | ALERT | Attack Type: None | IP: 52.32.238.85 | Port: 7211 | Threat: MEDIUM | United States, Portland, Amazon.com, Inc.
+2026-05-28 20:25:20 | ALERT | Attack Type: None | IP: 140.82.113.25 | Port: 10469 | Threat: MEDIUM | United States, San Francisco, GitHub, Inc.
+2026-05-28 20:30:19 | ALERT | Attack Type: None | IP: 20.135.6.15 | Port: 14497 | Threat: MEDIUM | United States, Phoenix, Microsoft Corporation
+2026-05-28 20:30:22 | ALERT | Attack Type: None | IP: 57.150.153.65 | Port: 14499 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation
+2026-05-28 20:31:09 | ALERT | Attack Type: None | IP: 20.189.173.16 | Port: 4982 | Threat: MEDIUM | United States, San Francisco, Microsoft Corporation
