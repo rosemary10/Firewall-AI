@@ -219,6 +219,9 @@
 
 </div>
 
+<!-- OVERLAY -->
+<div id="overlay" onclick="closeSidebar()"></div>
+
 <!-- MAIN -->
 <div class="main">
 
@@ -370,13 +373,33 @@
 
 function toggleSidebar() {
 
-    const sidebar = document.getElementById("sidebar");
+    const sidebar =
+        document.getElementById("sidebar");
 
-    sidebar.style.left =
-        (sidebar.style.left === "0px")
-        ? "-250px"
-        : "0px";
+    const overlay =
+        document.getElementById("overlay");
+
+    if (sidebar.style.left === "0px") {
+
+        sidebar.style.left = "-250px";
+
+        overlay.style.display = "none";
+
+    } else {
+
+        sidebar.style.left = "0px";
+
+        overlay.style.display = "block";
+    }
 }
+
+function closeSidebar() {
+
+    document.getElementById("sidebar").style.left = "-250px";
+
+    document.getElementById("overlay").style.display = "none";
+}
+
 
 /* ================= CHAT TOGGLE ================= */
 

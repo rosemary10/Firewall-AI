@@ -1709,3 +1709,6 @@
 2026-05-28 19:33:15 | ALERT | Attack Type: None | IP: 51.116.253.170 | Port: 9997 | Threat: MEDIUM | Germany, Frankfurt am Main, Microsoft Corporation
 2026-05-28 19:33:35 | ALERT | Attack Type: None | IP: 20.189.173.15 | Port: 10282 | Threat: MEDIUM | United States, San Francisco, Microsoft Corporation
 2026-05-28 19:40:26 | ALERT | Attack Type: None | IP: 20.42.65.91 | Port: 3141 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation
+2026-05-28 19:50:53 | ALERT | Attack Type: None | IP: 20.50.80.209 | Port: 14333 | Threat: MEDIUM | Ireland, Dublin, Microsoft Corporation
+2026-05-28 19:51:11 | ALERT | Attack Type: None | IP: 140.82.112.25 | Port: 12057 | Threat: MEDIUM | United States, San Francisco, GitHub, Inc.
+2026-05-28 19:55:00 | ALERT | Attack Type: None | IP: 13.70.79.200 | Port: 8394 | Threat: MEDIUM | Australia, The Rocks, Microsoft Corporation
