@@ -1731,3 +1731,13 @@
 2026-05-28 20:30:19 | ALERT | Attack Type: None | IP: 20.135.6.15 | Port: 14497 | Threat: MEDIUM | United States, Phoenix, Microsoft Corporation
 2026-05-28 20:30:22 | ALERT | Attack Type: None | IP: 57.150.153.65 | Port: 14499 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation
 2026-05-28 20:31:09 | ALERT | Attack Type: None | IP: 20.189.173.16 | Port: 4982 | Threat: MEDIUM | United States, San Francisco, Microsoft Corporation
+2026-05-28 20:35:25 | ALERT | Attack Type: None | IP: 20.42.73.24 | Port: 2761 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation
+2026-05-28 20:48:04 | ALERT | Attack Type: None | IP: 104.208.16.88 | Port: 9229 | Threat: MEDIUM | United States, Des Moines, Microsoft Corporation
+2026-05-28 20:48:06 | ALERT | Attack Type: None | IP: 40.84.85.40 | Port: 14102 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation
+2026-05-28 20:48:58 | ALERT | Attack Type: None | IP: 18.97.36.60 | Port: 14022 | Threat: MEDIUM | United States, Ashburn, Amazon.com, Inc.
+2026-05-28 21:02:43 | ALERT | Attack Type: None | IP: 4.230.171.124 | Port: 3394 | Threat: MEDIUM | South Korea, Seoul, Microsoft Corporation
+2026-05-28 21:02:46 | ALERT | Attack Type: None | IP: 20.189.173.24 | Port: 3395 | Threat: MEDIUM | United States, San Francisco, Microsoft Corporation
+2026-05-28 21:02:47 | ALERT | Attack Type: None | IP: 23.220.232.64 | Port: 5692 | Threat: MEDIUM | India, Chennai, Akamai Technologies, Inc.
+2026-05-28 21:02:49 | ALERT | Attack Type: None | IP: 40.79.167.9 | Port: 2927 | Threat: MEDIUM | Australia, The Rocks, Microsoft Corporation
+2026-05-28 21:02:56 | ALERT | Attack Type: None | IP: 20.190.146.33 | Port: 11714 | Threat: MEDIUM | India, Pune, Microsoft Corporation
+2026-05-28 21:03:03 | ALERT | Attack Type: None | IP: 18.97.36.57 | Port: 10425 | Threat: MEDIUM | United States, Ashburn, Amazon.com, Inc.
