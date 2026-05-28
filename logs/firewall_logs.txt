@@ -1650,3 +1650,51 @@
 2026-05-28 15:16:35 | ALERT | Attack Type: None | IP: 135.237.220.44 | Port: 9652 | Threat: MEDIUM | United States, Boydton, MICROSOFT
 2026-05-28 15:16:36 | ALERT | Attack Type: None | IP: 20.209.69.161 | Port: 9654 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation
 2026-05-28 15:16:43 | ALERT | Attack Type: None | IP: 20.209.184.65 | Port: 9657 | Threat: MEDIUM | United States, Des Moines, Microsoft Corporation
+2026-05-28 15:18:43 | ALERT | Attack Type: None | IP: 52.74.114.251 | Port: 4134 | Threat: MEDIUM | Singapore, Singapore, Amazon.com, Inc.
+2026-05-28 15:18:44 | ALERT | Attack Type: None | IP: 198.137.150.41 | Port: 8682 | Threat: MEDIUM | United States, San Francisco, Amazon.com, Inc.
+2026-05-28 15:18:51 | ALERT | Attack Type: None | IP: 192.0.80.241 | Port: 53968 | Threat: MEDIUM | United States, Dallas, Automattic, Inc
+2026-05-28 15:18:53 | ALERT | Attack Type: None | IP: 18.161.246.122 | Port: 59200 | Threat: MEDIUM | United States, Seattle, Amazon.com, Inc.
+2026-05-28 15:18:54 | ALERT | Attack Type: None | IP: 3.92.253.129 | Port: 8306 | Threat: MEDIUM | United States, Ashburn, Amazon Technologies Inc.
+2026-05-28 15:19:10 | ALERT | Attack Type: None | IP: 20.42.65.93 | Port: 12416 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation
+2026-05-28 15:19:12 | ALERT | Attack Type: None | IP: 104.114.67.71 | Port: 5580 | Threat: MEDIUM | India, Bengaluru, Akamai Technologies, Inc.
+2026-05-28 15:21:09 | ALERT | Attack Type: None | IP: 172.215.188.232 | Port: 13277 | Threat: MEDIUM | United States, San Antonio, Microsoft Corporation
+2026-05-28 15:22:50 | ALERT | Attack Type: None | IP: 104.46.162.230 | Port: 13288 | Threat: MEDIUM | Australia, Melbourne, Microsoft Corporation
+2026-05-28 15:22:53 | ALERT | Attack Type: None | IP: 23.55.47.214 | Port: 13293 | Threat: MEDIUM | India, Chennai, Akamai Technologies, Inc.
+2026-05-28 15:22:55 | ALERT | Attack Type: None | IP: 20.189.173.6 | Port: 13298 | Threat: MEDIUM | United States, San Francisco, Microsoft Corporation
+2026-05-28 15:22:58 | ALERT | Attack Type: None | IP: 72.145.35.101 | Port: 5771 | Threat: MEDIUM | Ireland, Dublin, Microsoft Corporation
+2026-05-28 15:23:04 | ALERT | Attack Type: None | IP: 13.69.239.74 | Port: 5783 | Threat: MEDIUM | Ireland, Dublin, Microsoft Corporation
+2026-05-28 15:23:24 | ALERT | Attack Type: None | IP: 23.208.65.107 | Port: 10416 | Threat: MEDIUM | India, Kolkata, Bharti Airtel Limited
+2026-05-28 15:24:11 | ALERT | Attack Type: None | IP: 57.155.101.212 | Port: 10456 | Threat: MEDIUM | Singapore, Singapore, MICROSOFT
+2026-05-28 15:24:48 | ALERT | Attack Type: None | IP: 72.145.35.107 | Port: 10472 | Threat: MEDIUM | Ireland, Dublin, Microsoft Corporation
+2026-05-28 15:25:07 | ALERT | Attack Type: None | IP: 52.182.143.208 | Port: 10483 | Threat: MEDIUM | United States, Des Moines, Microsoft Corporation
+2026-05-28 15:25:11 | ALERT | Attack Type: None | IP: 40.126.17.135 | Port: 10487 | Threat: MEDIUM | India, Chennai, Microsoft Corporation
+2026-05-28 15:25:14 | ALERT | Attack Type: None | IP: 135.234.160.245 | Port: 10490 | Threat: MEDIUM | United States, Boydton, MICROSOFT
+2026-05-28 15:25:19 | ALERT | Attack Type: None | IP: 4.144.132.114 | Port: 2905 | Threat: MEDIUM | Singapore, Singapore, Microsoft Corporation
+2026-05-28 15:25:47 | ALERT | Attack Type: None | IP: 135.234.160.246 | Port: 1043 | Threat: MEDIUM | United States, Boydton, MICROSOFT
+2026-05-28 15:26:15 | ALERT | Attack Type: None | IP: 104.208.16.90 | Port: 1047 | Threat: MEDIUM | United States, Des Moines, Microsoft Corporation
+2026-05-28 15:27:14 | ALERT | Attack Type: None | IP: 20.42.73.26 | Port: 1053 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation
+2026-05-28 18:30:10 | ALERT | Attack Type: None | IP: 23.208.178.54 | Port: 8267 | Threat: MEDIUM | India, Mumbai, Bharti Airtel Limited
+2026-05-28 18:51:46 | ALERT | Attack Type: None | IP: 40.74.78.229 | Port: 8283 | Threat: MEDIUM | Unknown, Unknown, Unknown
+2026-05-28 18:51:47 | ALERT | Attack Type: None | IP: 48.211.4.16 | Port: 8280 | Threat: MEDIUM | Unknown, Unknown, Unknown
+2026-05-28 18:51:49 | ALERT | Attack Type: None | IP: 20.135.4.163 | Port: 8276 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation
+2026-05-28 18:51:51 | ALERT | Attack Type: None | IP: 13.89.179.13 | Port: 8293 | Threat: MEDIUM | United States, Des Moines, Microsoft Corporation
+2026-05-28 18:51:54 | ALERT | Attack Type: None | IP: 57.150.250.225 | Port: 8296 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation
+2026-05-28 18:52:00 | ALERT | Attack Type: None | IP: 40.74.79.222 | Port: 8302 | Threat: MEDIUM | Japan, Osaka, Microsoft Corporation
+2026-05-28 18:52:02 | ALERT | Attack Type: None | IP: 40.126.18.33 | Port: 8317 | Threat: MEDIUM | India, Pune, Microsoft Corporation
+2026-05-28 18:52:03 | ALERT | Attack Type: None | IP: 52.253.84.76 | Port: 3020 | Threat: MEDIUM | Singapore, Singapore, Microsoft Corporation
+2026-05-28 18:52:05 | ALERT | Attack Type: None | IP: 20.42.179.204 | Port: 3567 | Threat: MEDIUM | United States, Quincy, Microsoft Corporation
+2026-05-28 18:56:52 | ALERT | Attack Type: None | IP: 20.189.173.2 | Port: 3474 | Threat: MEDIUM | United States, San Francisco, Microsoft Corporation
+2026-05-28 18:56:57 | ALERT | Attack Type: None | IP: 20.189.173.11 | Port: 3479 | Threat: MEDIUM | United States, San Francisco, Microsoft Corporation
+2026-05-28 18:57:02 | ALERT | Attack Type: None | IP: 23.203.37.241 | Port: 3484 | Threat: MEDIUM | India, Ahmedabad, Vodafone Idea Ltd.
+2026-05-28 18:57:06 | ALERT | Attack Type: None | IP: 18.161.246.7 | Port: 3488 | Threat: MEDIUM | United States, Seattle, Amazon.com, Inc.
+2026-05-28 18:57:08 | ALERT | Attack Type: None | IP: 104.17.160.116 | Port: 3493 | Threat: MEDIUM | Canada, Toronto, Cloudflare, Inc.
+2026-05-28 18:57:33 | ALERT | Attack Type: None | IP: 51.116.246.104 | Port: 3497 | Threat: MEDIUM | Germany, Frankfurt am Main, Microsoft Corporation
+2026-05-28 18:57:44 | ALERT | Attack Type: None | IP: 20.42.65.88 | Port: 3500 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation
+2026-05-28 18:58:03 | ALERT | Attack Type: None | IP: 52.168.117.168 | Port: 9370 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation
+2026-05-28 19:02:04 | ALERT | Attack Type: None | IP: 13.89.179.10 | Port: 6180 | Threat: MEDIUM | United States, Des Moines, Microsoft Corporation
+2026-05-28 19:12:28 | ALERT | Attack Type: None | IP: 20.50.73.13 | Port: 1918 | Threat: MEDIUM | Ireland, Dublin, Microsoft Corporation
+2026-05-28 19:14:09 | ALERT | Attack Type: None | IP: 4.247.188.233 | Port: 5455 | Threat: MEDIUM | India, Pune, Microsoft Corporation
+2026-05-28 19:22:16 | ALERT | Attack Type: None | IP: 51.105.71.136 | Port: 1203 | Threat: MEDIUM | United Kingdom, City of London, Microsoft
+2026-05-28 19:24:40 | ALERT | Attack Type: None | IP: 142.251.222.174 | Port: 65064 | Threat: MEDIUM | United States, Mountain View, Google LLC
+2026-05-28 19:24:45 | ALERT | Attack Type: None | IP: 51.132.193.104 | Port: 8515 | Threat: MEDIUM | United Kingdom, City of London, Microsoft
+2026-05-28 19:27:45 | ALERT | Attack Type: None | IP: 52.168.112.67 | Port: 2142 | Threat: MEDIUM | United States, Boydton, Microsoft Corporation

@@ -1,0 +1,164 @@
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SentinelAI Register</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        .register-container{
+
+            width: 400px;
+
+            margin: 80px auto;
+
+            background: #e4e8f0;
+
+            padding: 35px;
+
+            border-radius: 15px;
+
+            color: #111;
+        }
+
+        .register-container h1{
+
+            text-align: center;
+
+            color: #1a1774;
+
+            margin-bottom: 25px;
+        }
+
+        .register-container input{
+
+            width: 100%;
+
+            padding: 12px;
+
+            margin-bottom: 18px;
+
+            border-radius: 8px;
+
+            border: 1px solid #ccc;
+
+            font-size: 15px;
+        }
+
+        .register-container button{
+
+            width: 100%;
+
+            padding: 12px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #1a1774;
+
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+        }
+
+        .register-container button:hover{
+
+            background: #2563eb;
+        }
+
+        .error{
+
+            color: red;
+
+            text-align: center;
+
+            margin-bottom: 15px;
+        }
+
+        .success{
+
+            color: green;
+
+            text-align: center;
+
+            margin-bottom: 15px;
+        }
+
+        .login-link{
+
+            text-align: center;
+
+            margin-top: 15px;
+        }
+
+        .login-link a{
+
+            color: #1a1774;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="register-container">
+
+    <h1>Create SentinelAI Account</h1>
+
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+
+    {% if success %}
+        <div class="success">{{ success }}</div>
+    {% endif %}
+
+    <form method="POST">
+
+        <input type="email"
+               name="email"
+               placeholder="Enter Email"
+               required>
+
+        <input type="text"
+               name="mobile"
+               placeholder="Enter Mobile Number"
+               required>
+
+        <input type="password"
+               name="password"
+               placeholder="Create Password"
+               required>
+
+        <input type="password"
+               name="confirm_password"
+               placeholder="Confirm Password"
+               required>
+
+        <button type="submit">
+            Register
+        </button>
+
+    </form>
+
+    <div class="login-link">
+        Already have an account?
+        <a href="/login">Login</a>
+    </div>
+
+</div>
+
+</body>
+</html>
+```

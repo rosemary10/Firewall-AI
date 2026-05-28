@@ -6,11 +6,15 @@ cursor = conn.cursor()
 # ================= USERS TABLE =================
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS users (
+
     id INTEGER PRIMARY KEY AUTOINCREMENT,
 
-    username TEXT UNIQUE,
+    email TEXT UNIQUE,
+    mobile TEXT UNIQUE,
+
     password TEXT,
-    role TEXT,
+
+    role TEXT DEFAULT 'user',
 
     awareness_training_enabled INTEGER DEFAULT 1,
     safe_link_checker_enabled INTEGER DEFAULT 1,
@@ -29,18 +33,6 @@ CREATE TABLE IF NOT EXISTS logs (
     message TEXT
 )
 """)
-
-# ================= SAMPLE USERS =================
-from werkzeug.security import generate_password_hash
-
-cursor.execute("INSERT OR IGNORE INTO users (username, password, role) VALUES (?, ?, ?)",
-               ("admin", generate_password_hash("admin123"), "admin"))
-
-cursor.execute("INSERT OR IGNORE INTO users (username, password, role) VALUES (?, ?, ?)",
-               ("analyst1", generate_password_hash("analyst123"), "analyst"))
-
-cursor.execute("INSERT OR IGNORE INTO users (username, password, role) VALUES (?, ?, ?)",
-               ("user1", generate_password_hash("user123"), "user"))
 
 conn.commit()
 conn.close()
